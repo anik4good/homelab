@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  emby:
+    image: lscr.io/linuxserver/emby:latest
+    container_name: emby
+    environment:
+      - UID=1000 # The UID to run emby as (default: 2)
+      - GID=100 # The GID to run emby as (default 2)
+      - TZ=Malaysia/Kuala_Lumpur
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /configs/emby:/config
+      - /mnt/pve/nas1tb:/nas1tb
+    ports:
+      - 8096:8096 # HTTP port
+      - 8920:8920 # HTTPS port
+
+    restart: unless-stopped

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  family-tree:
+    build: .
+    ports:
+      - "8019:8019"
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data  # Mount data directory for persistence
+    environment:
+      - TZ=Asia/Kuala_Lumpur

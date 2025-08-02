@@ -1,0 +1,30 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: HomeLAB
+
+background:
+ # image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+ # image: https://images.unsplash.com/photo-1637825891028-564f672aa42c
+  blur: xl # sm, md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 100 # 0-100
+  color: rgba(0, 0, 0, 0.5) # optional, see https://tailwindcss.com/docs/background-color
+
+theme: dark
+# color: slate
+
+useEqualHeights: true
+statusStyle: "basic"
+hideErrors: true
+layout:
+  glances:
+    header: false
+    style: row
+    columns: 4
+  # Notes:
+  #   header: True
+  #   style: row
+  #   columns: 4

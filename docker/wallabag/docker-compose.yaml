@@ -1,0 +1,28 @@
+
+version: "3"
+
+services:
+  app:
+    image: wallabag/wallabag
+    container_name: wallabag
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost",
+        ]
+      interval: 1m
+      timeout: 3s
+    environment:
+      - SYMFONY__ENV__DOMAIN_NAME=https://wallabag.local.root2tech.com
+      - SYMFONY__ENV__SERVER_NAME="My Wallabag Instance"
+    ports:
+      - "7780:80"  # You can change 7780 to any local port
+    volumes:
+      - ./data:/var/www/wallabag/data
+      - ./images:/var/www/wallabag/web/assets/images

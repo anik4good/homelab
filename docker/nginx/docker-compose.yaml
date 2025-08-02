@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  k3s-lb:
+    image: nginx:stable
+    container_name: k3s-lb
+    ports:
+      - "6443:6443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped

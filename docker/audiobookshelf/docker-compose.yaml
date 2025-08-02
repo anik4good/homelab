@@ -1,0 +1,14 @@
+services:
+  audiobookshelf:
+    container_name: audiobookshelf
+    restart: unless-stopped
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    ports:
+      - 13378:80
+    volumes:
+      - /mnt/pve/nas1tb/Media/books/audiobooks:/audiobooks
+      - ./podcasts:/podcasts
+      - ./config:/config
+      - ./metadata:/metadata
+    environment:
+      - TZ=Malaysia/Kuala_Lumpur

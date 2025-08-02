@@ -1,0 +1,80 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+# icons found here https://github.com/walkxcode/dashboard-icons
+
+
+
+
+- My First Group:
+    - Hypervisor:
+        - Proxmox:
+            icon: proxmox.svg
+            href: https://proxmox.local.root2tech.com
+            description: proxmox
+            widget:
+                type: proxmox
+                url: https://proxmox.local.root2tech.com
+                username: root@pam!dashboard
+                password: 591b9927-cb6c-4dd4-a11d-c1e538881540
+                node: proxmox
+
+- My Second Group:
+    - Containers:
+        - Portainer:
+            icon: portainer.svg
+            href: https://portainer.local.root2tech.com
+            description: docker
+            widget:
+                type: portainer
+                url: https://portainer.local.root2tech.com
+                env: 3
+                key: ptr_IQfUzZuer6dQajD6MWXzq77xb30rTP80KpFH5+EyAjA=
+
+- My Third Group:
+    - Network:
+        - Uptime Kuma:
+            icon: uptime-kuma.svg
+            href: https://uptimekuma.local.root2tech.com/
+            description: internal
+            widget:
+                type: uptimekuma
+                url: https://uptimekuma.local.root2tech.com/
+                slug: homelab
+
+    - Other:
+    - GitLab:
+        icon: gitlab.svg
+        href: https://gitlab.com
+        description: source code
+    - GitHub:
+        icon: github.svg
+        href: https://github.com
+        description: source code
+    - Shlink:
+        icon: https://shlink.io/images/shlink-logo-blue.svg
+        href: "{{HOMEPAGE_VAR_SHLINK_URL}}"
+        description: dashboard
+
+
+
+
+
+# - Home Automation:
+#     - Home Assistant:
+#         icon: home-assistant.svg
+#         href: https://ha.local.root2tech.com/
+#         description: home
+#         widget:
+#             type: homeassistant
+#             url: https://ha.local.root2tech.com/
+#             key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxMzBhMDE3YjkzZmE0MDYwOTMwNjNkNWRkOThlMDUwOSIsImlhdCI6MTc1MzM3MTY0MywiZXhwIjoyMDY4NzMxNjQzfQ.cXbBAf9jVh0D7SyZXVrrmzexQfTNEneDHq1TzYndCyY
+#             custom:
+#                 - state: sensor.total_power
+#                 - state: sensor.total_energy_today
+#                   label: energy today
+#                 - template: "{{ states.switch|selectattr('state','equalto','on')|list|length }}"
+#                   label: switches on
+#                 - state: weather.forecast_home
+#                   label: wind speed
+#                   value: "{attributes.wind_speed} {attributes.wind_speed_unit}"

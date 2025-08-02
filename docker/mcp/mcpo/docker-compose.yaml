@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mcpo:
+    image: ghcr.io/open-webui/mcpo:main
+    container_name: mcpo
+    ports:
+      - "8500:8000"
+    volumes:
+      - ./config.json:/app/config.json:ro
+    command: >
+      mcpo
+      --config /app/config.json
+      --port 8000
+      --api-key secret123
+    restart: unless-stopped

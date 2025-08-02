@@ -1,0 +1,226 @@
+---
+- glances:
+    - info:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: info
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+    - Memory:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: memory
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+    - Network:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: network:vmbr0
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+
+    - TEMP:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: sensor:Composite
+
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+    - NVME:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: fs:/
+          diskUnits: bytes
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+    - NAS:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: fs:/mnt/pve/nas1tb
+          diskUnits: bytes
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+
+    - NAS2TB:
+        widget:
+          type: glances
+          url: http://192.168.100.100:61208/
+          username: root
+          password: Aust02bd@
+          version: 4
+          metric: fs:/mnt/pve/acer_workspace_d
+          diskUnits: bytes
+          refreshInterval: 5000
+          pointsLimit: 15
+          chart: false
+- Infrastructure and Data:
+    - Proxmox:
+        icon: proxmox.svg
+        href: https://proxmox.local.root2tech.com
+        description: proxmox
+        widget:
+            type: proxmox
+            refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
+            url: https://proxmox.local.root2tech.com
+            username: root@pam!dashboard
+            password: 591b9927-cb6c-4dd4-a11d-c1e538881540
+            node: proxmox
+            # chart: true
+    - AA Panel:
+        icon: https://www.aapanel.com/static/images/aaPanel.png
+        href: https://aapanel.local.root2tech.com/997fee8d
+        description: aapanel
+        # siteMonitor: https://aapanel.local.root2tech.com/997fee8d
+
+- Management:
+    - Portainer:
+        icon: portainer.svg
+        href: https://portainer.local.root2tech.com
+        description: docker
+        widget:
+            type: portainer
+            url: https://portainer.local.root2tech.com
+            env: 3
+            key: ptr_IQfUzZuer6dQajD6MWXzq77xb30rTP80KpFH5+EyAjA=
+        server: my-docker
+        container: portainer
+- Monitoring:
+    - Uptime Kuma:
+        icon: uptime-kuma.svg
+        href: https://uptimekuma.local.root2tech.com/
+        description: internal
+        widget:
+            type: uptimekuma
+            url: https://uptimekuma.local.root2tech.com/
+            slug: homelab
+        server: my-docker
+        container: uptime-kuma
+- IoT and Smarthome:
+    - Home Assistant:
+        href: https://ha.local.root2tech.com/
+        icon: home-assistant.png
+        description: homeassistant
+        widget:
+            type: homeassistant
+            url: http://192.168.100.249:8123
+            key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1MWI3NGIxYmY2OWE0ZTVhODExYjE5MWI4NmNjNzQ0MCIsImlhdCI6MTc1MzQxMzg2OCwiZXhwIjoyMDY4NzczODY4fQ.ARZYAufJ9tU9_ja6o8jiUvDfvKvm8x5ZG73t5EdN0iM
+            custom:
+            - state: sensor.kitchen_socket_power
+              label: Proxmox
+            - state: sensor.proxmox_energy_today
+              label: Today
+
+
+            - state: sensor.bedroom_multi_socket_power
+              label: Bedroom
+            - state: sensor.bedroom_multi_socket_energy_today
+              label: Today
+
+- Media and Entertainment:
+    - Immich:
+        href: https://immich.local.root2tech.com/
+        icon: sh-immich
+        description: immich
+        siteMonitor: https://immich.local.root2tech.com/
+        widget:
+          type: immich
+          url: https://immich.local.root2tech.com/
+          key: kecmM6ifoqjivns27NKML3mHkeDQBnWzefaTkxus
+          version: 2
+    - Jellyfin:
+        href: http://192.168.100.39:8097
+        icon: sh-jellyfin
+        description: Jellyfin
+        siteMonitor: http://192.168.100.39:8097
+        widget:
+          type: jellyfin
+          url: http://192.168.100.39:8097
+          key: 932259af2125462c97473c7aeaadd846
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+          enableUser: true # optional, defaults to false
+          enableMediaControl: false # optional, defaults to true
+          showEpisodeNumber: true # optional, defaults to false
+          expandOneStreamToTwoRows: false # optional, defaults to true
+
+- Webservers & Proxies:
+    - Nginx Proxy Manager:
+        href: http://192.168.100.248:81/
+        icon: sh-nginx
+        description: nginx
+        siteMonitor: http://192.168.100.248:81/
+        server: my-docker
+        container: nginx_proxy_manager
+    # - GoAccess Nginx Logs:
+    #     href: http://192.168.100.248:7880/
+    #     icon: sh-goaccess
+    #     description: logs
+    #     siteMonitor: http://192.168.100.248:7880/
+    #     server: my-docker
+    #     container: goaccess
+- Cloud:
+    - Nextcloud:
+        href: https://nextcloud.local.root2tech.com/
+        description: nextcloud
+        icon: sh-nextcloud
+        siteMonitor: https://nextcloud.local.root2tech.com/
+        # widget:
+        #     type: nextcloud
+        #     url: https://nextcloud.local.root2tech.com/
+        #     # username: admin
+        #     # password: Aust02bd@@2121
+        #     key: DDNFs-ynSPJ-TSSXR-ePfWp-HpCWq
+        server: my-docker
+        container: nextcloud-aio-nextcloud
+
+- Automation:
+    - jenkins:
+        href: https://jenkins.local.root2tech.com/
+        icon: sh-jenkins
+        description: jenkins
+        siteMonitor: https://jenkins.local.root2tech.com/
+
+
+
+- Notes:
+    - wallabag:
+        href: https://wallabag.local.root2tech.com/
+        icon: sh-wallabag
+        description: wallabag
+        siteMonitor: https://wallabag.local.root2tech.com/
+- AI:
+    - openwebui:
+        href: https://ai.local.root2tech.com/
+        icon: sh-openai
+        description: Openwebui
+        siteMonitor: https://ai.local.root2tech.com/

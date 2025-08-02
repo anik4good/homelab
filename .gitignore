@@ -1,0 +1,3 @@
+**/data/
+**/volumes/
+**/.env      # Will handle secrets separately
