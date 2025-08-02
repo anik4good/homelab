@@ -1,3 +1,49 @@
+# Ignore all Docker volume data directories
+**/config/
 **/data/
-**/volumes/
-**/.env      # Will handle secrets separately
+**/metadata/
+**/podcasts/
+**/uploads/
+**/logs/
+**/cache/
+**/icons/
+**/imgs/
+**/screenshots/
+**/vector_db/
+**/homarr/
+**/open-webui/
+**/nextcloud_aio_mastercontainer/
+**/ncdata/
+**/npm_data/
+**/npm_letsencrypt/
+**/npm_logs/
+
+# Specific SQLite or DB files
+**/*.sqlite
+**/*.db
+**/*.db-shm
+**/*.db-wal
+
+# Secrets or credentials
+**/secrets.env
+**/*.env
+**/config.json
+**/settings.yml
+
+# Ignore docker-compose override files or backups
+**/docker-compose.override.yml
+**/*~
+**/#*#
+
+# Ignore binary/output files
+*.log
+*.pid
+*.bak
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore untracked folders you might accidentally add
+/opt/docker/
